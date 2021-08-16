@@ -5,6 +5,7 @@
 
 struct filmes{
     char *nome;
+    
     int codigoFilme;
 };
 
