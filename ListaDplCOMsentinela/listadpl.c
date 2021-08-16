@@ -22,7 +22,7 @@ Lista* InicLista(void){
 }
 
 void InsereLista(Lista *lista,Filmes* filme){
-		Celula *nova = (Celula*)malloc(sizeof(Celula));
+	Celula *nova = (Celula*)malloc(sizeof(Celula));
 
     nova->filme = filme;
     nova->ant = lista->ult;
