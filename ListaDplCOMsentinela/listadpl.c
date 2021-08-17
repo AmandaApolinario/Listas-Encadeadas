@@ -21,7 +21,23 @@ Lista* InicLista(void){
     return list;
 }
 
-void InsereLista(Lista *lista,Filmes* filme){
+void InsereListaInicio(Lista *lista,Filmes* filme){
+    //insere no inicio da lista
+    Celula *nova = (Celula*)malloc(sizeof(Celula));
+
+
+    nova->filme = filme;
+    nova->prox = lista->prim;
+
+    lista->prim = nova;
+
+    if(lista->ult == NULL){
+        lista->ult = nova;
+    }
+}
+
+void InsereListaFinal(Lista *lista,Filmes* filme){
+    //insere no fim da lista
 	Celula *nova = (Celula*)malloc(sizeof(Celula));
 
     nova->filme = filme;
@@ -37,15 +53,16 @@ void InsereLista(Lista *lista,Filmes* filme){
       lista->prim = nova;
     }
 
+
 }
 	
 void RetiraLista(Lista *lista,int codFilme){
     Celula *retirar;
     retirar = lista->prim;
 
-		while(RetornaCodigo(retirar->filme) != codFilme){
-				retirar = retirar->prox;
-		}
+	while(RetornaCodigo(retirar->filme) != codFilme){
+		retirar = retirar->prox;
+	}
 
     if (retirar == lista->prim){ 
         lista->prim = retirar->prox;

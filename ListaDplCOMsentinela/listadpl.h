@@ -9,7 +9,9 @@ typedef struct lista Lista;
 
 Lista* InicLista(void);
 
-void InsereLista(Lista *lista,Filmes* filme);
+void InsereListaInicio(Lista *lista,Filmes* filme);
+
+void InsereListaFinal(Lista *lista,Filmes* filme);
 
 void RetiraLista(Lista *lista,int codFilme);
 
