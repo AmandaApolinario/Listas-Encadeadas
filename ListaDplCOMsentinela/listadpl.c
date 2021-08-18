@@ -65,6 +65,7 @@ void RetiraListaInicio(Lista *lista){
         return;
     }
     lista->prim->ant = NULL;
+    free(retirar);
 }
 
 void RetiraListaFim(Lista* lista){
@@ -133,6 +134,5 @@ void DestroiLista(Lista *lista){
         free(temp);
         temp = prox;
     }
-
     free(lista);
 }
