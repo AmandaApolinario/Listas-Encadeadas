@@ -55,8 +55,32 @@ void InsereListaFinal(Lista *lista,Filmes* filme){
 
 
 }
+
+void RetiraListaInicio(Lista *lista){
+    Celula *retirar;
+    retirar = lista->prim;
+
+    lista->prim = retirar->prox;
+    if(lista->prim == NULL){
+        return;
+    }
+    lista->prim->ant = NULL;
+}
+
+void RetiraListaFim(Lista* lista){
+    Celula *retirar;
+    retirar = lista->ult;
+
+    lista->ult = retirar->ant;
+    if(lista->ult == NULL){
+        return;
+    }
+
+    lista->ult->prox = NULL;
+    
+}
 	
-void RetiraLista(Lista *lista,int codFilme){
+void RetiraListaGenerico(Lista *lista,int codFilme){
     Celula *retirar;
     retirar = lista->prim;
 
@@ -100,7 +124,7 @@ void ImprimeListaContrario(Lista *lista){
 }
 
 void DestroiLista(Lista *lista){    
-		Celula *temp = lista->prim;
+	Celula *temp = lista->prim;
     Celula *prox;
 
     while(temp != NULL){
