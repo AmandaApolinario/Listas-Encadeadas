@@ -5,7 +5,7 @@ typedef struct celula Celula;
 struct celula{
     Filmes *filme;
     Celula *prox;
-		Celula *ant;
+	Celula *ant;
 };
 
 struct lista{
@@ -43,7 +43,7 @@ void InsereListaFinal(Lista *lista,Filmes* filme){
     nova->filme = filme;
     nova->ant = lista->ult;
 		if(nova->ant != NULL){
-			nova->ant->prox = nova;//e os casos especiais
+			nova->ant->prox = nova;
 		}
 		nova->prox = NULL;
 
@@ -52,6 +52,11 @@ void InsereListaFinal(Lista *lista,Filmes* filme){
     if(lista->prim == NULL){
       lista->prim = nova;
     }
+
+}
+
+void InsereListaGenerico(Lista *lista,Filmes* filme,int pos){
+    Celula *nova = (Celula*)malloc(sizeof(Celula));
 
 
 }
@@ -62,32 +67,39 @@ void RetiraListaInicio(Lista *lista){
 
     lista->prim = retirar->prox;
     if(lista->prim == NULL){
+        free(retirar);
         return;
     }
     lista->prim->ant = NULL;
+
     free(retirar);
 }
 
-void RetiraListaFim(Lista* lista){
-    Celula *retirar;
+void RetiraListaFinal(Lista* lista){
+    /*Celula *retirar;
     retirar = lista->ult;
 
-    lista->ult = retirar->ant;
-    if(lista->ult == NULL){
-        return;
+    if (retirar == lista->prim){ 
+        lista->prim = retirar->prox;
+    }
+    else{
+        retirar->ant->prox = retirar->prox;
+    }
+    if (retirar->prox != NULL){
+        retirar->prox->ant = retirar->ant;
     }
 
-    lista->ult->prox = NULL;
+    //free(retirar);*/
     
 }
 	
-void RetiraListaGenerico(Lista *lista,int codFilme){
+void RetiraListaGenerico(Lista *lista,int pos){
     Celula *retirar;
     retirar = lista->prim;
 
-	while(RetornaCodigo(retirar->filme) != codFilme){
-		retirar = retirar->prox;
-	}
+    for(int i=0;i<pos;i++){
+        retirar = retirar->prox;
+    }
 
     if (retirar == lista->prim){ 
         lista->prim = retirar->prox;

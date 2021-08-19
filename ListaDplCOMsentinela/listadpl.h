@@ -13,11 +13,13 @@ void InsereListaInicio(Lista *lista,Filmes* filme);
 
 void InsereListaFinal(Lista *lista,Filmes* filme);
 
+void InsereListaGenerico(Lista *lista,Filmes* filme,int pos);
+
 void RetiraListaInicio(Lista *lista);
 
-void RetiraListaFim(Lista* lista);
+void RetiraListaFinal(Lista* lista);
 
-void RetiraListaGenerico(Lista *lista,int codFilme);
+void RetiraListaGenerico(Lista *lista,int pos);
 
 void ImprimeLista(Lista *lista);
 

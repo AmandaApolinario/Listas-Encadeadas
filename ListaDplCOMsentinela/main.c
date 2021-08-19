@@ -10,16 +10,21 @@ int main(){
 
     Lista *lista1 = InicLista();
 
-    InsereListaInicio(lista1,filme1);
-	InsereListaInicio(lista1,filme2);
-	InsereListaInicio(lista1,filme3);
-	InsereListaInicio(lista1,filme4);
+    InsereListaFinal(lista1,filme1);
+	InsereListaFinal(lista1,filme2);
+	InsereListaFinal(lista1,filme3);
+	InsereListaFinal(lista1,filme4);
 
-	RetiraListaInicio(lista1);
-	RetiraListaInicio(lista1);
-	RetiraListaInicio(lista1);
-	RetiraListaInicio(lista1);
-	
+	ImprimeLista(lista1);
+	printf("\n\n");
+	RetiraListaGenerico(lista1,2);
+	RetiraListaGenerico(lista1,2);
+	RetiraListaGenerico(lista1,1);
+	RetiraListaGenerico(lista1,0);
+
+	ImprimeLista(lista1);
+	printf("\n\n");
+
     InsereListaInicio(lista1,filme1);
 	InsereListaInicio(lista1,filme2);
 	InsereListaInicio(lista1,filme3);
