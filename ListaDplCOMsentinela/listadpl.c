@@ -5,7 +5,7 @@ typedef struct celula Celula;
 struct celula{
     Filmes *filme;
     Celula *prox;
-		Celula *ant;
+	Celula *ant;
 };
 
 struct lista{
@@ -21,13 +21,29 @@ Lista* InicLista(void){
     return list;
 }
 
-void InsereLista(Lista *lista,Filmes* filme){
-		Celula *nova = (Celula*)malloc(sizeof(Celula));
+void InsereListaInicio(Lista *lista,Filmes* filme){
+    //insere no inicio da lista
+    Celula *nova = (Celula*)malloc(sizeof(Celula));
+
+
+    nova->filme = filme;
+    nova->prox = lista->prim;
+
+    lista->prim = nova;
+
+    if(lista->ult == NULL){
+        lista->ult = nova;
+    }
+}
+
+void InsereListaFinal(Lista *lista,Filmes* filme){
+    //insere no fim da lista
+	Celula *nova = (Celula*)malloc(sizeof(Celula));
 
     nova->filme = filme;
     nova->ant = lista->ult;
 		if(nova->ant != NULL){
-			nova->ant->prox = nova;//e os casos especiais
+			nova->ant->prox = nova;
 		}
 		nova->prox = NULL;
 
@@ -38,14 +54,52 @@ void InsereLista(Lista *lista,Filmes* filme){
     }
 
 }
-	
-void RetiraLista(Lista *lista,int codFilme){
+
+void InsereListaGenerico(Lista *lista,Filmes* filme,int pos){
+    Celula *nova = (Celula*)malloc(sizeof(Celula));
+
+
+}
+
+void RetiraListaInicio(Lista *lista){
     Celula *retirar;
     retirar = lista->prim;
 
-		while(RetornaCodigo(retirar->filme) != codFilme){
-				retirar = retirar->prox;
-		}
+    lista->prim = retirar->prox;
+    if(lista->prim == NULL){
+        free(retirar);
+        return;
+    }
+    lista->prim->ant = NULL;
+
+    free(retirar);
+}
+
+void RetiraListaFinal(Lista* lista){
+    /*Celula *retirar;
+    retirar = lista->ult;
+
+    if (retirar == lista->prim){ 
+        lista->prim = retirar->prox;
+    }
+    else{
+        retirar->ant->prox = retirar->prox;
+    }
+    if (retirar->prox != NULL){
+        retirar->prox->ant = retirar->ant;
+    }
+
+    //free(retirar);*/
+    
+}
+	
+void RetiraListaGenerico(Lista *lista,int pos){
+    Celula *retirar;
+    retirar = lista->prim;
+
+    for(int i=0;i<pos;i++){
+        retirar = retirar->prox;
+    }
 
     if (retirar == lista->prim){ 
         lista->prim = retirar->prox;
@@ -83,7 +137,7 @@ void ImprimeListaContrario(Lista *lista){
 }
 
 void DestroiLista(Lista *lista){    
-		Celula *temp = lista->prim;
+	Celula *temp = lista->prim;
     Celula *prox;
 
     while(temp != NULL){
@@ -92,6 +146,5 @@ void DestroiLista(Lista *lista){
         free(temp);
         temp = prox;
     }
-
     free(lista);
 }
