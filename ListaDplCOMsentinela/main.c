@@ -3,33 +3,35 @@
 #include "listadpl.h"
 
 int main(){
-	  Filmes *filme1 = InicFilmes("Atonement",1);
+	Filmes *filme1 = InicFilmes("Atonement",1);
     Filmes *filme2 = InicFilmes("Before Sunset",5);
     Filmes *filme3 = InicFilmes("Clue",15);
     Filmes *filme4 = InicFilmes("Columbus",9);
 
-    Lista *lista = InicLista();
-		ImprimeLista(lista);
+    Lista *lista1 = InicLista();
 
-    InsereLista(lista,filme4);
-    InsereLista(lista,filme3);
-    InsereLista(lista, filme2);
-    InsereLista(lista,filme1);
+    InsereListaFinal(lista1,filme1);
+	InsereListaFinal(lista1,filme2);
+	InsereListaFinal(lista1,filme3);
+	InsereListaFinal(lista1,filme4);
 
-		RetiraLista(lista, 1);
-		RetiraLista(lista, 15);
-		RetiraLista(lista,5);
-		RetiraLista(lista, 9);
-		ImprimeLista(lista);
+	ImprimeLista(lista1);
+	printf("\n\n");
+	RetiraListaGenerico(lista1,2);
+	RetiraListaGenerico(lista1,2);
+	RetiraListaGenerico(lista1,1);
+	RetiraListaGenerico(lista1,0);
 
-		InsereLista(lista,filme4);
-    InsereLista(lista,filme3);
-    InsereLista(lista, filme2);
-    InsereLista(lista,filme1);
+	ImprimeLista(lista1);
+	printf("\n\n");
 
-		printf("\n\n");
-		ImprimeLista(lista);
+    InsereListaInicio(lista1,filme1);
+	InsereListaInicio(lista1,filme2);
+	InsereListaInicio(lista1,filme3);
+	InsereListaInicio(lista1,filme4);
 
-		DestroiLista(lista);
+	ImprimeLista(lista1);
+	DestroiLista(lista1);
+
 	return 0;
 }
