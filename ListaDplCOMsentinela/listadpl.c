@@ -81,6 +81,7 @@ void InsereListaGenerico(Lista *lista,Filmes* filme,int pos){
     if (temp == NULL) {
         printf("pos invalida\n");
         return;
+        
     }
  
     nova->prox = temp->prox;
