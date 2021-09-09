@@ -42,10 +42,11 @@ void InsereListaFinal(Lista *lista,Filmes* filme){
 
     nova->filme = filme;
     nova->ant = lista->ult;
-		if(nova->ant != NULL){
-			nova->ant->prox = nova;
-		}
-		nova->prox = NULL;
+
+	if(nova->ant != NULL){
+		nova->ant->prox = nova;
+	}
+	nova->prox = NULL;
 
     lista->ult = nova;
 
@@ -56,9 +57,43 @@ void InsereListaFinal(Lista *lista,Filmes* filme){
 }
 
 void InsereListaGenerico(Lista *lista,Filmes* filme,int pos){
+
     Celula *nova = (Celula*)malloc(sizeof(Celula));
+    nova->filme = filme;
 
+    if(pos == -1){
+        nova->prox = lista->prim;
 
+        lista->prim = nova;
+
+        if(lista->ult == NULL){
+            lista->ult = nova;
+        }
+        return;
+    }
+
+    Celula *temp=lista->prim;
+
+    for(int i=0;i<pos;i++){
+        temp = temp->prox;
+    }
+
+    if (temp == NULL) {
+        printf("pos invalida\n");
+        return;
+    }
+ 
+    nova->prox = temp->prox;
+    temp->prox = nova;
+    nova->ant = temp;
+    if (nova->prox != NULL){
+        nova->prox->ant = nova;
+    }
+
+    if(lista->ult == NULL){
+        lista->ult = nova;
+    }
+    
 }
 
 void RetiraListaInicio(Lista *lista){
