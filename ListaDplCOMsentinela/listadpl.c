@@ -57,6 +57,8 @@ void InsereListaFinal(Lista *lista,Filmes* filme){
 }
 
 void InsereListaGenerico(Lista *lista,Filmes* filme,int pos){
+    //insere apos o numero da posicao passada, então se pos = 0, ele vai pra segunda posicao
+    //para inserir antes de tudo, pos = -1
 
     Celula *nova = (Celula*)malloc(sizeof(Celula));
     nova->filme = filme;
@@ -98,6 +100,7 @@ void InsereListaGenerico(Lista *lista,Filmes* filme,int pos){
 }
 
 void RetiraListaInicio(Lista *lista){
+
     Celula *retirar;
     retirar = lista->prim;
 
@@ -109,24 +112,6 @@ void RetiraListaInicio(Lista *lista){
     lista->prim->ant = NULL;
 
     free(retirar);
-}
-
-void RetiraListaFinal(Lista* lista){
-    /*Celula *retirar;
-    retirar = lista->ult;
-
-    if (retirar == lista->prim){ 
-        lista->prim = retirar->prox;
-    }
-    else{
-        retirar->ant->prox = retirar->prox;
-    }
-    if (retirar->prox != NULL){
-        retirar->prox->ant = retirar->ant;
-    }
-
-    //free(retirar);*/
-    
 }
 	
 void RetiraListaGenerico(Lista *lista,int pos){
@@ -152,6 +137,9 @@ void RetiraListaGenerico(Lista *lista,int pos){
 }
 
 void ImprimeLista(Lista *lista){
+    if(!lista){
+        return;
+    }
 	  Celula *temp;
     temp = lista->prim;
 
