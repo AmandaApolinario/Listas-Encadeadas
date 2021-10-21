@@ -1,9 +1,16 @@
 # Listas-Encadeadas
 
 Estruturas de dados aprendidas na UFES
-Falta atualizar:
-* Listas heterogêneas
-* Pilhas
+
+Falta atualizar/conferir:
 * Filas
-* Árvores
+* Listas DPL com sentinela
+* Lista DPL sem sentinela
+* Lista Generica
+* Lista Heteronegea
+* Lista normal com sentinela
+* Pilhas
 * Tabela Hash
+
+Atualizado:
+* Arvore Binária
