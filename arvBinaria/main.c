@@ -1,5 +1,14 @@
 #include "ArvBinBusca.h"
 
+void SimOuNao(int num){
+    if(num == 1){
+        printf("Sim!\n");
+    }
+    else{
+        printf("Nao!\n");
+    }
+}
+
 int main(){
     Aluno *amanda = InicAluno(121,"Amanda",7.1);
     Aluno *pedro = InicAluno(915,"Pedro",5.9);
@@ -19,7 +28,7 @@ int main(){
 
     arvBinImprime(arv);
 
-    printf("busca o aluno de matricula 111:\n");
+    printf("\nbusca o aluno de matricula 111:\n");
     Arv* t;
     t = arvBinBusca(arv, 111);
     if(t != NULL){
@@ -37,6 +46,25 @@ int main(){
     else{
         printf("nao existe\n");
     }
+
+    printf("\nAmanda esta na lista?\n");
+    SimOuNao(arvPertence(arv,"Amanda"));
+
+    printf("Carlos esta na lista?\n");
+    SimOuNao(arvPertence(arv,"Carlos"));
+
+    printf("Aline esta na lista?\n");
+    SimOuNao(arvPertence(arv,"Aline"));
+    printf("\n");
+
+    int folhas = qtdFolhasArv(arv);
+    printf("A quantidade de folhas da arvore eh: %d\n",folhas);
+
+    int ocorrencias = qtdOcorrenciasArv(arv,"Filipe");
+    printf("A quantidade de ocorrencias do nome %s na arvore eh %d\n","Filipe",ocorrencias);
+
+    int altura = alturaArv(arv);
+    printf("A altura da arvore eh: %d\n\n",altura);
 
     arvBinRetira(arv, 121);//retira um no com dois filhos;
     arvBinImprime(arv);
