@@ -1,8 +1,7 @@
 # Listas-Encadeadas
 
-Estruturas de dados aprendidas na UFES
+Estruturas de dados aprendidas na UFES - exercicios de ED1
 
-Falta atualizar/conferir:
 * Filas
 * Listas DPL com sentinela
 * Lista DPL sem sentinela
@@ -11,6 +10,4 @@ Falta atualizar/conferir:
 * Lista normal com sentinela
 * Pilhas
 * Tabela Hash
-
-Atualizado:
 * Arvore Binária
